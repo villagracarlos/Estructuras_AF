@@ -43,3 +43,5 @@ StateNode* find_state(Automata* A, char* name);
 
 void add_transition(Automata* A, char* from, char* symbol, char* to); 
 //ejemplo add_transition(A,"q0","a","q1"); add_transition(A,"q0","a","q2");
+
+void print_automata(Automata* A);
