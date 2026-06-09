@@ -34,3 +34,15 @@ void add_transition(Automata* A, char* from, char* symbol, char* to) {
         current = current->next;
     }
 }
+//ejemplo add_state(A,"q0",false); add_state(A,"q1",true);
+void add_state(Automata* A, char* name, bool isFinal){
+	StateNode *newState = (StateNode*)malloc(sizeof(StateNode));
+	
+	newState->name = (String)name;
+	newState->transitions = NULL;
+	newState->isFinal = isFinal;
+	newState->next = NULL;
+	
+	newState->next = A->states;
+	A->states = newState;
+}
