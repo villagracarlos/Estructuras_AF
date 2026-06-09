@@ -29,7 +29,7 @@ struct stateNode{
 typedef struct{
     StateNode* states;
 
-    StateNode* q0;
+    State q0;
 
     bool deterministic;
 } Automata;
