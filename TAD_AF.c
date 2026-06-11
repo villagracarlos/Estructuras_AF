@@ -34,6 +34,39 @@ void add_transition(Automata* A, char* from, char* symbol, char* to) {
         current = current->next;
     }
 }
+
+void printTransition(Transition *transition){
+	Transition *aux = transition;
+	while(aux != NULL){
+		printSTR(transition->symbol);
+		printf("->");
+		print_Tdata(transition->to);
+		aux = aux->next;
+	}
+}
+void print_automata(Automata* A){
+	//Estado inicial
+	printf("Estado inicial: ");
+	printSTR(A->q0);
+	
+	//Estados
+	printf("Estados\n");
+	StateNode *aux = A->states;
+	while(aux != NULL){
+		printf("Estado: ");
+		printSTR(A->states->name);
+		if(A->states->isFinal)printf("\nEstado de aceptacion\n");
+		//Transiciones del estado
+		printf("Transiciones:\n");
+		printTransition(aux->transitions);
+		
+		aux = aux->next;
+	}
+	//Es determinista?
+	if(A->deterministic){printf("Automata determinista");}
+	else printf("Automata no determinista");
+	//
+}
 //ejemplo add_state(A,"q0",false); add_state(A,"q1",true);
 void add_state(Automata* A, char* name, bool isFinal){
 	StateNode *newState = (StateNode*)malloc(sizeof(StateNode));
