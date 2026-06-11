@@ -77,5 +77,13 @@ int main(){
     printf("\nConjunto D = "); print_Tdata(D);
     printf("\nConjunto E = "); print_Tdata(E);
 
+	printf("====================== AF =====================");
+	Automata *AF = create_automata();
+	add_state(AF,"q0",false,true);
+	add_state(AF,"q1",true,false);
+	add_transition(AF,"qo","a","q1");
+	
+	print_automata(AF);
+
     return 0;
 }
